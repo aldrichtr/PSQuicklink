@@ -1,0 +1,59 @@
+@{
+    #region Configuration Settings
+     config     = @{
+        <# Define the characters used to identify a ShortCode
+         #>
+        shortcode = @{
+            start = '['
+            end   = ':]'
+        }
+    }
+    #endregion Configuration Settings
+
+    #region Shortcode definitions
+        <#
+        For each short code you want to use, add a hashtable with the following keys:
+            id = at least one "word character" without the "start" or "end" characters.
+                 for example, if you use '[gl:]' for 'https://google.com/', then the id
+                 would be 'gl'
+            name = A single word name for the shortcode
+            uri = The URI of the link such as 'https://google.com/'
+            type = The classification of the link, such as 'web', file, or 'unc'.  You
+                   can use this field to filter and sort searches such as the output
+                   of `Get-LinkShortCode`
+         #>
+    shortcodes = @(
+        @{
+            id    = 'gh'
+            name  = 'GitHub'
+            uri   = 'https://github.com/'
+            type = 'web'
+        }
+        @{
+            id    = 'gl'
+            name  = 'Google'
+            uri   = 'https://google.com/'
+            type = 'web'
+        }
+
+    )
+    #endregion Shortcode definitions
+
+    #region Links
+    links = @(
+        <#
+        For each link, add a hashtable with the following keys:
+            name = This is the name you use to call the link in `Invoke-QuickLink`
+            uri  = The URI to the resource you want to link to
+            tags = An array of tags associated with the link, used for sorting and filtering
+         #>
+         @{
+            name = 'ql-docs'
+            uri  = '[gh:]aldrichtr/PSQuickLinks/blob/main/docs'
+            tags = @(
+                'docs'
+            )
+         }
+    )
+    #endregion Links
+}
