@@ -1,5 +1,5 @@
 
-function Initialize-QuickLinks {
+function Initialize-QuickLink {
     [CmdletBinding()]
     param(
         # Specifies a path to one or more locations.
